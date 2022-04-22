@@ -4,7 +4,8 @@
   "description": "Ciceksepeti.com Case Study",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:chrome": "testcafe chrome ./tests/*.test.js --skip-js-errors",
+    "test:cross": "testcafe chrome,firefox ./tests/*.test.js --skip-js-errors"
   },
   "author": "okanyuksel",
   "license": "ISC",
