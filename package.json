@@ -4,8 +4,10 @@
   "description": "Ciceksepeti.com Case Study",
   "main": "index.js",
   "scripts": {
-    "test:chrome": "testcafe chrome ./tests/*.test.js --skip-js-errors",
-    "test:cross": "testcafe chrome,firefox ./tests/*.test.js --skip-js-errors"
+    "test:chrome": "testcafe chrome ./tests/*.test.js -r xunit:report/report.xml -s path=screenshots/,takeOnFails=true --skip-js-errors",
+    "test:cross": "testcafe chrome,firefox ./tests/*.test.js -r xunit:report/report.xml -s path=screenshots/,takeOnFails=true --skip-js-errors",
+    "test:headless": "testcafe chrome:headless ./tests/*.test.js -s path=screenshots/,takeOnFails=true --skip-js-errors",
+    "test:parallel": "testcafe chrome -c 4 ./tests/*.test.js -r xunit:report/report.xml -s path=screenshots/,takeOnFails=true --skip-js-errors"
   },
   "author": "okanyuksel",
   "license": "ISC",

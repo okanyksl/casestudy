@@ -6,8 +6,8 @@ class HomePage extends BasePage {
         super();
         this.startHere = Selector('main').child('div').child('div')
             .child('div').child('div');
-        this.signInText = Selector('body.main-eng.js-load-complete:nth-child(2) div.header:nth-child(4) div.container div.header__top.js-window-menu div.user-menu-container.js-user-menu nav.user-menu ul.user-menu__items.user-menu__items--logout li.user-menu__item.user-process-hover.hidden-xs:nth-child(3) a.user-menu__link.user-process-toggle:nth-child(1) > span.user-menu__title');
-        this.signInButton = Selector('body.main-eng.js-load-complete:nth-child(2) div.header:nth-child(4) div.container div.header__top.js-window-menu div.user-menu-container.js-user-menu nav.user-menu ul.user-menu__items.user-menu__items--logout li.user-menu__item.user-process-hover.hidden-xs:nth-child(3) div.user-process.js-user-process:nth-child(2) div.user-process__content a.users-process-list__btn:nth-child(1) > span.users-process-list__text');
+        this.signInText = Selector('.user-menu__title').nth(2);
+        this.signInButton = Selector('.users-process-list__btn');
     }
 
     async checkHomePage(){
@@ -16,14 +16,13 @@ class HomePage extends BasePage {
     }
 
     async setDisplayNone(){
+        //Anasayfa açıldığında elementlere ulaşabilmek için display:block değeri display:none olarak değiştirilir.
         const setAttribute = ClientFunction(selector => {
             var element = document.querySelector(selector);
             element.setAttribute('style', 'display:none');
         });
         await setAttribute('.subheader-overlay');
-
     }
-
 
     async goToLoginPage(){
         //Sign In text'inin görüntülendiği kontrol edilir
@@ -34,6 +33,5 @@ class HomePage extends BasePage {
         await t.click(this.signInButton);
     }
 }
-
 
 export default HomePage;
