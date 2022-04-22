@@ -1,0 +1,12 @@
+{
+  "reporter":[{
+    "name":"html",
+    "output":"reports/report.html"
+  }, {"name":"xunit", "output":"reports/report.xml"}],
+  "screenshots":{
+    "path":"screenshots/",
+    "pathPattern":"${DATE}_${TIME}/test-${TEST_INDEX}/${USERAGENT}/${FILE_INDEX}.png",
+    "takeOnFails":true,
+    "fullPage":true
+  }
+}
